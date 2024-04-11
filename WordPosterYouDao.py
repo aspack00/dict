@@ -88,6 +88,7 @@ class WordPosterYouDao:
         with open(self.b_file_path, 'r', encoding='utf-8') as b_file:
             lines = b_file.readlines()
             A_NUM = self.line_num
+            BATCH_SIZE = 10
             # 确保开始行号不大于文件总行数
             if self.line_num <= len(lines):
                 # 从第start_line_number行开始读取
@@ -95,7 +96,7 @@ class WordPosterYouDao:
                     if len(line.strip()) > 0 and ('#' not in line):
                         # words.append(self.replace_fran(line.strip()))
                         words.append(line.strip())
-                    if len(words) == 5 or line == lines[-1]:
+                    if len(words) == BATCH_SIZE or line == lines[-1]:
                         if len(words) == 0:
                             return
                         self.log_to_file_and_console(f"Starting to send words from line {self.line_num + 1}.")
@@ -111,7 +112,7 @@ class WordPosterYouDao:
                                 code = body.get('code', 0)
                                 if code == 0:
                                     # 更新起始行号
-                                    self.line_num += 10
+                                    self.line_num += BATCH_SIZE
                                     with open(self.a_file_path, 'w', encoding='utf-8') as a_file:
                                         a_file.write(str(self.line_num))
                                     b_success = True
