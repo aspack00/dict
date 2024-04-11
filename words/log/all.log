@@ -1,0 +1,34 @@
+2024-04-11 16:52:00: Starting to send words from line 1.
+2024-04-11 16:52:25: POST request failed: HTTPSConnectionPool(host='tcb-df22zhkzi34p4nm-4cvje34891ec.service.tcloudbase.com', port=443): Max retries exceeded with url: /add_update_words_youdao (Caused by ProxyError('Unable to connect to proxy', OSError(0, 'Error')))
+2024-04-11 16:52:36: POST request failed (attempt: 1次).
+2024-04-11 16:52:53: POST request failed: HTTPSConnectionPool(host='tcb-df22zhkzi34p4nm-4cvje34891ec.service.tcloudbase.com', port=443): Max retries exceeded with url: /add_update_words_youdao (Caused by ProxyError('Unable to connect to proxy', OSError(0, 'Error')))
+2024-04-11 16:56:00: POST request failed (attempt: 2次).
+2024-04-11 16:56:44: POST request failed: HTTPSConnectionPool(host='tcb-df22zhkzi34p4nm-4cvje34891ec.service.tcloudbase.com', port=443): Max retries exceeded with url: /add_update_words_youdao (Caused by ProxyError('Unable to connect to proxy', OSError(0, 'Error')))
+2024-04-11 16:56:48: POST request failed (attempt: 3次).
+2024-04-11 16:59:56: Starting to send words from line 1.
+2024-04-11 17:03:40: Starting to send words from line 1.
+2024-04-11 17:04:23: POST request failed: HTTPSConnectionPool(host='tcb-df22zhkzi34p4nm-4cvje34891ec.service.tcloudbase.com', port=443): Max retries exceeded with url: /add_update_words_youdao (Caused by ProxyError('Unable to connect to proxy', OSError(0, 'Error')))
+2024-04-11 17:04:23: POST request failed (attempt: 1次).
+2024-04-11 17:05:16: POST request failed: HTTPSConnectionPool(host='tcb-df22zhkzi34p4nm-4cvje34891ec.service.tcloudbase.com', port=443): Max retries exceeded with url: /add_update_words_youdao (Caused by ProxyError('Unable to connect to proxy', OSError(0, 'Error')))
+2024-04-11 17:05:16: POST request failed (attempt: 2次).
+2024-04-11 17:05:30: POST request failed: HTTPSConnectionPool(host='tcb-df22zhkzi34p4nm-4cvje34891ec.service.tcloudbase.com', port=443): Max retries exceeded with url: /add_update_words_youdao (Caused by ProxyError('Unable to connect to proxy', OSError(0, 'Error')))
+2024-04-11 17:07:32: Starting to send words from line 1.
+2024-04-11 17:10:22: Starting to send words from line 1.
+2024-04-11 17:10:31: POST request failed: HTTPSConnectionPool(host='tcb-df22zhkzi34p4nm-4cvje34891ec.service.tcloudbase.com', port=443): Max retries exceeded with url: /add_update_words_youdao (Caused by ProxyError('Unable to connect to proxy', OSError(0, 'Error')))
+2024-04-11 17:21:33: POST request failed (attempt: 1次).
+2024-04-11 17:21:47: POST request failed: HTTPSConnectionPool(host='tcb-df22zhkzi34p4nm-4cvje34891ec.service.tcloudbase.com', port=443): Max retries exceeded with url: /add_update_words_youdao (Caused by ProxyError('Unable to connect to proxy', OSError(0, 'Error')))
+2024-04-11 17:21:54: POST request failed (attempt: 2次).
+2024-04-11 17:22:09: POST request failed: HTTPSConnectionPool(host='tcb-df22zhkzi34p4nm-4cvje34891ec.service.tcloudbase.com', port=443): Max retries exceeded with url: /add_update_words_youdao (Caused by ProxyError('Unable to connect to proxy', OSError(0, 'Error')))
+2024-04-11 17:22:09: POST request failed (attempt: 3次).
+2024-04-11 20:15:03: Starting to send words from line 1.
+2024-04-11 20:15:11: POST request failed: HTTPSConnectionPool(host='tcb-df22zhkzi34p4nm-4cvje34891ec.service.tcloudbase.com', port=443): Max retries exceeded with url: /add_update_words_youdao (Caused by ProxyError('Unable to connect to proxy', OSError(0, 'Error')))
+2024-04-11 20:15:19: POST request failed (attempt: 1次).
+2024-04-11 20:18:28: POST request failed: HTTPSConnectionPool(host='tcb-df22zhkzi34p4nm-4cvje34891ec.service.tcloudbase.com', port=443): Max retries exceeded with url: /add_update_words_youdao (Caused by ProxyError('Unable to connect to proxy', OSError(0, 'Error')))
+2024-04-11 20:18:28: POST request failed (attempt: 2次).
+2024-04-11 20:18:41: POST request failed: HTTPSConnectionPool(host='tcb-df22zhkzi34p4nm-4cvje34891ec.service.tcloudbase.com', port=443): Max retries exceeded with url: /add_update_words_youdao (Caused by ProxyError('Unable to connect to proxy', OSError(0, 'Error')))
+2024-04-11 20:22:17: POST request failed (attempt: 3次).
+2024-04-11 21:42:29: Starting to send words from line 1.
+2024-04-11 21:42:56: Starting to send words from line 1.
+2024-04-11 21:49:15: POST request failed: HTTPSConnectionPool(host='tcb-df22zhkzi34p4nm-4cvje34891ec.service.tcloudbase.com', port=443): Max retries exceeded with url: /add_update_words_youdao (Caused by ProxyError('Unable to connect to proxy', OSError(0, 'Error')))
+2024-04-11 21:49:15: POST request failed (attempt: 1次).
+2024-04-11 21:49:29: POST request failed: HTTPSConnectionPool(host='tcb-df22zhkzi34p4nm-4cvje34891ec.service.tcloudbase.com', port=443): Max retries exceeded with url: /add_update_words_youdao (Caused by ProxyError('Unable to connect to proxy', OSError(0, 'Error')))
