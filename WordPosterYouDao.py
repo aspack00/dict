@@ -1,6 +1,5 @@
 import datetime
 import glob
-import html
 import json
 import os
 import shutil
@@ -92,56 +91,50 @@ class WordPosterYouDao:
             # 确保开始行号不大于文件总行数
             if self.line_num <= len(lines):
                 # 从第start_line_number行开始读取
-                for line in lines[A_NUM:]:
-                    if len(line.strip()) > 0 and ('#' not in line):
-                        # words.append(self.replace_fran(line.strip()))
-                        words.append(line.strip())
-                    if len(words) == BATCH_SIZE or line == lines[-1]:
-                        if len(words) == 0:
-                            return
-                        self.log_to_file_and_console(f"Starting to send words from line {self.line_num + 1}.")
-                        data = urllib.parse.quote('{"wordlist":[' + ','.join(words) + ']}')
-                        # gg = json.loads(data)
-                        # 重试POST请求最多3次
-                        b_success = False
-                        for attempt in range(100):
-                            time.sleep(5)
-                            response = self.post_json_to_url(post_url, data)
-                            if response is not None:
-                                body = response.get('result', {})
-                                code = body.get('code', 0)
-                                if code == 0:
-                                    # 更新起始行号
-                                    self.line_num += BATCH_SIZE
-                                    with open(self.a_file_path, 'w', encoding='utf-8') as a_file:
-                                        a_file.write(str(self.line_num))
-                                    b_success = True
-                                    words.clear()
-                                    self.log_to_file_and_console(
-                                        f"该文件 {self.file_prefix} 成功: {self.line_num} /{len(lines)}行")
-                                    break  # 请求成功，跳出重试循环
-                                else:
-                                    self.log_to_file_and_console(f"POST response with non-zero code: {body}")
-                                    time.sleep(5)  # 休眠10秒后再重试
+                for i in range(0, len(lines[A_NUM:]), BATCH_SIZE):
+                    batch_lines = lines[A_NUM:][i:i + BATCH_SIZE]
+                    batch_words = [line.strip() for line in batch_lines if len(line.strip()) > 0 and '#' not in line]
+                    # words.extend([self.replace_fran(line) for line in batch_lines])
+                    words.extend(batch_words)
+                    self.log_to_file_and_console(f"Starting to send words from line {self.line_num + 1}.")
+                    data = urllib.parse.quote('{"wordlist":[' + ','.join(words) + ']}')
+                    # gg = json.loads(data)
+                    # 重试POST请求最多3次
+                    b_success = False
+                    for attempt in range(100):
+                        time.sleep(5)
+                        response = self.post_json_to_url(post_url, data)
+                        if response is not None:
+                            body = response.get('result', {})
+                            code = body.get('code', 0)
+                            if code == 0:
+                                # 更新起始行号
+                                self.line_num += len(batch_lines)
+                                with open(self.a_file_path, 'w', encoding='utf-8') as a_file:
+                                    a_file.write(str(self.line_num))
+                                b_success = True
+                                words.clear()
+                                self.log_to_file_and_console(
+                                    f"该文件 {self.file_prefix} 成功: {self.line_num} /{len(lines)}行")
+                                break  # 请求成功，跳出重试循环
                             else:
-                                self.log_to_file_and_console(f"POST request failed (attempt: {attempt + 1}次).")
+                                self.log_to_file_and_console(f"POST response with non-zero code: {body}")
                                 time.sleep(5)  # 休眠10秒后再重试
-                        if not b_success:
-                            # 失败则退出
-                            self.log_to_file_and_console(
-                                f"program exit,max tried {attempt + 1}times from start num: {self.line_num + 1} to end num: {self.line_num + 10 + 1}.")
-                            return
-                # 处理完的文件挪到finished文件夹
-                self.log_to_file_and_console("文件处理完成，准备挪到finished文件夹.")
-                b_can_move = True
-            else:
-                # 数量超出，直接挪到finished文件夹
-                b_can_move = True
-                self.log_to_file_and_console(f"file line {len(lines)} is less than {self.line_num}.")
-        b_file.close()
+                        else:
+                            self.log_to_file_and_console(f"POST request failed (attempt: {attempt + 1}次).")
+                            time.sleep(5)  # 休眠10秒后再重试
+                    if not b_success:
+                        # 失败则退出
+                        self.log_to_file_and_console(
+                            f"program exit,max tried {attempt + 1}times from start num: {self.line_num + 1} to end num: {self.line_num + 10 + 1}.")
+                        return
+            # 处理完的文件挪到finished文件夹
+            self.log_to_file_and_console("文件处理完成，准备挪到finished文件夹.")
+            b_can_move = True
+        b_can_move = True
+        self.log_to_file_and_console(f"file line {len(lines)} is less than {self.line_num}.")
         if b_can_move:
             self.move_file()
-
 
 # 示例使用场景
 if __name__ == "__main__":
